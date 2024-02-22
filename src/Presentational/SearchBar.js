@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function SearchBar({showResults, result, setQuery}) {
+
+export default function SearchBar({showResults, searchTerm, handleQuery}) {
     return (
         <form onSubmit={showResults}>
-            <input type="text" required value={result} onChange={setQuery} />
-            <input type="submit" value="Search songs" />
+            <input type="text" required value={searchTerm} onChange={handleQuery} />
         </form>
     )
 }
