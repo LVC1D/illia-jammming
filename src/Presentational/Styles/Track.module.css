@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('./Resources/Fonts/Raleway/static/Raleway-Regular.ttf') format('truetype');
+}
+
+p, h3 {
+    font-family: 'Raleway';
+    color: #d8f1fa; 
+}
+
+h3 {
+    font-weight: 700;
+}

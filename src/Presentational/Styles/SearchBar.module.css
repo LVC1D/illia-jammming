@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('./Resources/Fonts/Raleway/static/Raleway-Regular.ttf') format('trutype');
+}
+
+.searchForm {
+    text-align: center;
+    font-family: 'Raleway';
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.searchForm input {
+    background-color: #353535;
+    border: 1px solid #31D843;
+    text-align: center;
+    height: 2rem;
+    font-size: 1.45rem;
+    color: rgb(255, 240, 220); 
+    border-radius: 10px;
+}

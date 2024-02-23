@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Outfit';
+    src: url('./Resources/Fonts/Outfit/static/Outfit-Bold.ttf') format('truetype'),
+        url('./Resources/Fonts/Outfit/static/Outfit-Regular.ttf') format('truetype');
+}
+
+.playlistInput {
+    background-color: #353535;
+    text-align: center;
+    font-family: 'Outfit';
+    color: rgb(255, 240, 220);
+    text-align: center;
+    font-size: 2.1rem;
+    height: 2rem;
+    border-radius: 10px;
+    position: relative;
+    right: 0;
+}
+
+.form {
+    margin-top: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}

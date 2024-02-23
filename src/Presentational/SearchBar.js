@@ -1,10 +1,10 @@
 import React from 'react'
-
+import searchStyles from './Styles/SearchBar.module.css';
 
 export default function SearchBar({showResults, searchTerm, handleQuery}) {
     return (
-        <form onSubmit={showResults}>
-            <input type="text" required value={searchTerm} onChange={handleQuery} />
+        <form className={searchStyles.searchForm} onSubmit={showResults}>
+            <input type="text" required value={searchTerm} onChange={handleQuery} placeholder='Search a track' />
         </form>
     )
 }

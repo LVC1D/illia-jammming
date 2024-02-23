@@ -3,6 +3,8 @@ import SearchBar from './Presentational/SearchBar'
 import Tracklist from './Presentational/Tracklist';
 import Playlist from './Presentational/Playlist';
 import { getSpotifyToken, parseSpotifyData, uploadPlaylist } from './Spotify';
+import styles from './Presentational/Styles/App.module.css';
+import trackListStyle from './Presentational/Styles/Tracklist.module.css';
 
 function App() {
   
@@ -79,12 +81,18 @@ function App() {
   }
   
   return (
-    <div style={{margin: '0 5%'}}>
-      <h1>JAMMMING</h1>
-      <SearchBar showResults={showResults} searchTerm={searchTerm} handleQuery={handleQuery} />
-      <div style={{display: 'flex'}}>
-        <Tracklist tracklist={tracklist} addToPlaylist={addToPlaylist} />
-        <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} name={name} changeName={handleChange} saveToSpotify={saveToSpotify} />
+    <div>
+      <div className={styles.appBanner}>
+        <header>
+          <nav>
+            <h1>JA<span style={{color: '#31D843'}}>MMM</span>ING</h1>
+          </nav>
+        </header>
+        <SearchBar showResults={showResults} searchTerm={searchTerm} handleQuery={handleQuery} />
+        <div className={trackListStyle.container}>
+          <Tracklist tracklist={tracklist} addToPlaylist={addToPlaylist} />
+          <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} name={name} changeName={handleChange} saveToSpotify={saveToSpotify} />
+        </div>
       </div>
     </div>
   );
