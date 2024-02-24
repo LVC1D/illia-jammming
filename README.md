@@ -32,6 +32,9 @@ Just make sure you have an active Spotify account throught which you can grant p
 
 Now you can click on *Get recommendations* button on each song to get 5 recommendations based on the track per which you selext the recommendations. You can add those to your custom playlist with ease.
 
+**Note:** Feel free to check out [this technical documentation](https://docs.google.com/document/d/1Ake7TMQspqx74goV3vsVWndZeTeSIaE1xpVpq7Is3Y0/) relevant to the feature addition.
+
+
 ### How can I add comments for improving the app?
 
 You can add them here in the comments on GitHub, or go to this [link here](https://discuss.codecademy.com/t/my-jammming-project/810692) to post your reply.
