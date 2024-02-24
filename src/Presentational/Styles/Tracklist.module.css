@@ -19,6 +19,7 @@ li {
 .button {
     position: absolute;
     right: 0;
+    top: 15px;
     align-self: center;
     height: 40px;
     width: 3rem;
@@ -27,6 +28,7 @@ li {
     border-radius: 10px;
     font-size: 1.4rem;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .container {
@@ -49,7 +51,9 @@ li {
     background-color: #3EFF8B;
     color: #353535;
     border-radius: 10px;
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: 0px solid rgb(255, 240, 220); 
 }
 
 .nameInput {
@@ -62,4 +66,25 @@ li {
     border-radius: 10px;
     position: relative;
     right: 0;
+}
+
+.suggestBtn {
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: underline;
+    color:rgb(255, 240, 220); 
+    border: 0px solid rgb(255, 240, 220); 
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+
+.recContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    align-items: center;
+    flex-flow: column wrap;
 }
