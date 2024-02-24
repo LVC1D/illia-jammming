@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import SearchBar from './Presentational/SearchBar'
 import Tracklist from './Presentational/Tracklist';
 import Playlist from './Presentational/Playlist';
-import { getSpotifyToken, parseSpotifyData, uploadPlaylist } from './Spotify';
+import Recommendations from './Presentational/Recommendations';
+import { getSpotifyToken, parseSpotifyData, uploadPlaylist, fetchRecommendations } from './Spotify';
 import styles from './Presentational/Styles/App.module.css';
 import trackListStyle from './Presentational/Styles/Tracklist.module.css';
 
@@ -79,19 +80,33 @@ function App() {
     setName(name)
     setPlaylist([]);
   }
+
+  // Create recommendations
+  const [suggestions, setSuggestions] = useState([]);
+  const showSuggestions = async () => {
+    console.log('Fetching recommendations...');
+    const trackId = tracklist.map(track => track.id);
+    const randomIndex = Math.floor(Math.random() * 5)
+    const recResults = await fetchRecommendations(trackId[randomIndex]);
+    setSuggestions(recResults)
+  };
   
   return (
     <div>
       <div className={styles.appBanner}>
         <header>
           <nav>
-            <h1>JA<span style={{color: '#31D843'}}>MMM</span>ING</h1>
+            <h1 className={styles.h1}>JA<span style={{color: '#31D843'}}>MMM</span>ING</h1>
           </nav>
         </header>
         <SearchBar showResults={showResults} searchTerm={searchTerm} handleQuery={handleQuery} />
         <div className={trackListStyle.container}>
-          <Tracklist tracklist={tracklist} addToPlaylist={addToPlaylist} />
+          <Tracklist tracklist={tracklist} addToPlaylist={addToPlaylist} showSuggestions={showSuggestions} />
           <Playlist playlist={playlist} removeFromPlaylist={removeFromPlaylist} name={name} changeName={handleChange} saveToSpotify={saveToSpotify} />
+        </div>
+        <div>
+          {suggestions.length > 0 && <h2 className={styles.h2}>Check out These Recommendations</h2>}
+          <Recommendations suggestions={suggestions} addToPlaylist={addToPlaylist} />
         </div>
       </div>
     </div>

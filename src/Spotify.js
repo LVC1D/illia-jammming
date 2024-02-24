@@ -127,3 +127,39 @@ export const uploadPlaylist = async (name, trackURIs) => {
         console.log(error)
     }
 }
+
+export const parseRecommendations = data => {
+    
+    if(!data.tracks || !data.seeds) {
+        return [];
+    }
+
+    return data.tracks.map(item => ({
+        artist: item.artists.length > 0 ? item.artists[0].name : 'Unknown artist',
+        song: item.name,
+        album: item.album ? item.album.name : 'Unknown album',
+        id: item.id,
+        uri: item.uri 
+    }))
+}
+
+export const fetchRecommendations = async(trackId) => {
+    try {
+        const accessToken = await getSpotifyToken();
+        const response = await fetch(`https://api.spotify.com/v1/recommendations?limit=5&seed_genres=electronic&seed_tracks=${trackId}`, {
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            },
+            method: 'GET'
+        });
+
+        if(response.ok) {
+            const jsonResponse = await response.json();
+            const recommendations = parseRecommendations(jsonResponse)
+            return recommendations;
+        }
+    } catch(e) {
+        console.error(`Error fetching recommendations: ${e.message}`);
+    }
+}
+

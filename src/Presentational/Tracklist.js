@@ -2,7 +2,7 @@ import React from 'react';
 import Track from './Track';
 import trackListStyle from './Styles/Tracklist.module.css';
 
-function Tracklist({tracklist, addToPlaylist}) {
+function Tracklist({tracklist, addToPlaylist, showSuggestions}) {
     return (
       <div className={trackListStyle.containerItem}>
         <ul className={trackListStyle.ul}>
@@ -10,7 +10,10 @@ function Tracklist({tracklist, addToPlaylist}) {
             tracklist.map((track) => (
               <li className={trackListStyle.li} key={track.id}>
                 <Track song={track.song} artist={track.artist} album={track.album} />
-                <button className={trackListStyle.button} onClick={() => addToPlaylist(track)}>+</button>
+                <div>
+                  <button className={trackListStyle.button} onClick={() => addToPlaylist(track)}>+</button>
+                  <button className={trackListStyle.suggestBtn} onClick={showSuggestions}>Get recommendations</button>
+                </div>
               </li>
             ))
           ) : (
