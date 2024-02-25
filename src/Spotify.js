@@ -22,7 +22,7 @@ export const getSpotifyToken = () => {
     } else {
           // Redirect the user to the Spotify authorization URL
           const clientId = '5d558001059e4f058c05353caae87dee';
-          const redirectUri = 'http://localhost:3000/callback';
+          const redirectUri = 'https://illia-jammming.netlify.app';
           const scope = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
   
           const authorizationUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&response_type=token&show_dialog=true`;
