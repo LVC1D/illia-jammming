@@ -141,7 +141,7 @@ export const parseRecommendations = data => {
         id: item.id,
         uri: item.uri 
     }))
-}
+} 
 
 export const fetchRecommendations = async(trackId) => {
     try {
